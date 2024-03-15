@@ -1,0 +1,7 @@
+rm ./*.exe ./*.o
+g++ -ansi -c -O3 -Wall *.cpp integration/*.cpp output/*.cpp spectra/*.cpp statistics/*.cpp
+g++ -o  DiffRay3D_BM.exe *.o -lm
+cp DiffRay3D_BM.exe ../../DiffRay3D_BM.exe
+cp DiffRay3D_BM.exe ../../work/DiffRay3D_BM.exe
+cp DiffRay3D_BM.exe ../../launch_script/parallel/DiffRay3D_BM.exe
+
