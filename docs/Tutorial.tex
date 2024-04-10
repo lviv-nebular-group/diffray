@@ -101,7 +101,7 @@ and files.\\
 3. Once unzipped, go to "source/v*.*.*/" folder, and run MakeFile.all. This should
 create DiffRay3D.exe executable into instalation root folder.\\
 
-\subsection{Input data format}
+\section{Input data format}
 To work correctly, code should have information about objects geometry, emissivity and opacity maps,
 so on. This information is readen from data folder. In general, filename looks like:
 
@@ -111,12 +111,22 @@ Here Sector number is number of represented by file sector
 Age can be used as any identifier for model data set. (F.E. once you have maps for several models,
 you can enumarate them, and use this numeration in age field.
 
-Complete list of supported data files:
+Complete list of supported data files and their format can be found in next subsections.
 
+\subsection{Continuum Mesh}
 {\bf Continuum1\_Last\_Age10.00Myr.dat} - file with continuum energy mesh structure. 
 Each row should contain into first column continuum cell energy in Rydbergs. 
-File is required.
-
+File is required. The structure of file is following:
+\begin{table}[]
+\begin{tabular}{ll}
+continuum cell 1 energY & ... \\
+continuum cell 2 energY & ... \\
+continuum cell 3 energY & ... \\
+continuum cell 4 energY & ... \\
+... & .. \\
+\end{tabular}
+\end{table}
+&ontinuum cell energ& should be represended in RYdberg
 {\bf Emis\_Cont\_SectorNo1\_Age10.00Myr.dat} - file with continuum emissivity data. Each row 
 corresponds to sector slab. First row has only one value - inner radius. Next rows contain slab outer radius in first column, 
 and emissivity values for each energy cell in following columns. File is required.
