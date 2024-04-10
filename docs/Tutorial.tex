@@ -119,14 +119,17 @@ Each row should contain into first column continuum cell energy in Rydbergs.
 File is required. The structure of file is following:
 \begin{table}[]
 \begin{tabular}{ll}
-continuum cell 1 energY & ... \\
-continuum cell 2 energY & ... \\
-continuum cell 3 energY & ... \\
-continuum cell 4 energY & ... \\
-... & .. \\
+continuum cell 1 energy & ... \\
+continuum cell 2 energy & ... \\
+continuum cell 3 energy & ... \\
+continuum cell 4 energy & ... \\
+... & ... \\
 \end{tabular}
 \end{table}
-&ontinuum cell energ& should be represended in RYdberg
+Continuum cell energy should be represended in Rydberg units. File can contain arbitrary amount of columns, but only first one is used,
+while the rest ones will be ignored.
+If you want to change reading behavour, see \it{CContinuum::readMesh} method in "continuum.cpp" file.
+
 {\bf Emis\_Cont\_SectorNo1\_Age10.00Myr.dat} - file with continuum emissivity data. Each row 
 corresponds to sector slab. First row has only one value - inner radius. Next rows contain slab outer radius in first column, 
 and emissivity values for each energy cell in following columns. File is required.
