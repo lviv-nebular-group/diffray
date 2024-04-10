@@ -1,6 +1,7 @@
 \documentclass[a4paper]{article}
 \usepackage{epsfig,amsmath,amsfonts,amssymb,setspace,multirow,textcomp}
 \usepackage[T1]{fontenc}
+\usepackage{float}
 \textheight 23cm \textwidth 18cm \hoffset= 0mm \voffset= 0cm
 \topmargin -1cm \oddsidemargin -8mm \evensidemargin 0mm \columnsep = 4ex
 % end of preamble
@@ -117,7 +118,7 @@ Complete list of supported data files and their format can be found in next subs
 {\bf Continuum1\_Last\_Age10.00Myr.dat} - file with continuum energy mesh structure. 
 Each row should contain into first column continuum cell energy in Rydbergs. 
 File is required. The structure of file is following:
-\begin{table}[]
+\begin{table}[H]
 \begin{tabular}{ll}
 continuum cell 1 energy & ... \\
 continuum cell 2 energy & ... \\
