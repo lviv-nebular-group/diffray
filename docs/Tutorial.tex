@@ -115,36 +115,84 @@ you can enumarate them, and use this numeration in age field.
 Complete list of supported data files and their format can be found in next subsections.
 
 \subsection{Continuum Mesh}
-{\bf Continuum1\_Last\_Age10.00Myr.dat} - file with continuum energy mesh structure. 
+{\bf Continuum\{SectorNo\}\_Last\_Age10.00Myr.dat} - file with continuum energy mesh structure.
 Each row should contain into first column continuum cell energy in Rydbergs. 
 File is required. The structure of file is following:
 \begin{table}[H]
 \begin{tabular}{ll}
-continuum cell 1 energy & ... \\
-continuum cell 2 energy & ... \\
-continuum cell 3 energy & ... \\
-continuum cell 4 energy & ... \\
+cell 1 energy & ... \\
+cell 2 energy & ... \\
+cell 3 energy & ... \\
+cell 4 energy & ... \\
 ... & ... \\
 \end{tabular}
 \end{table}
 Continuum cell energy should be represended in Rydberg units. File can contain arbitrary amount of columns, but only first one is used,
 while the rest ones will be ignored.
-If you want to change reading behavour, see \it{CContinuum::readMesh} method in "continuum.cpp" file.
+If you want to change reading behavour, see {\it CContinuum::readMesh} method in "continuum.cpp" file.
 
-{\bf Emis\_Cont\_SectorNo1\_Age10.00Myr.dat} - file with continuum emissivity data. Each row 
+\subsection{Continuum emissivities map}
+{\bf Emis\_Cont\_SectorNo\{SectorNo\}\_Age10.00Myr.dat} - file with continuum emissivity data. Each row
 corresponds to sector slab. First row has only one value - inner radius. Next rows contain slab outer radius in first column, 
-and emissivity values for each energy cell in following columns. File is required.
+and net volume emissivity values for each energy cell in corresponding slab in following columns. File is required. Note, that amount of columns in this file should
+be equal to amount of rows in {\bf Continuum1\_Last\_Age10.00Myr.dat} + 1 column for radius.
+The structure is following:
+\begin{table}[H]
+    \begin{tabular}{lll}
+        inner radius & & \\
+        Radius 1 & emissivity & ... \\
+        Radius 2 & emissivity & ... \\
+        Radius 3 & emissivity & ... \\
+        ... & ... & ... \\
+    \end{tabular}
+\end{table}
+Slab radius should be specified in centimeters. Emissivities are in erg * cm^-3 * sec^-1).
+If you want to change reading behavour, see {\it CContinuum::readEmissivity} method in "continuum.cpp" file.
 
-{\bf Opac\_Cont\_SectorNo1\_Age10.00Myr.dat} - file with opacity data for each continuum cell. Each row 
+\subsection{Continuum opacities map}
+{\bf Opac\_Cont\_SectorNo\{SectorNo\}\_Age10.00Myr.dat} - file with opacity data for each continuum cell. Each row
 corresponds to sector slab. First row has only one value - inner radius. Next rows contain slab outer radius in first column, 
 and opacity values for each energy cell in following columns. Used both for continuum and lines optical depth calculation. 
 File is required.
+The structure is following:
+\begin{table}[H]
+    \begin{tabular}{lll}
+        inner radius & & \\
+        Radius 1 & emissivity & ... \\
+        Radius 2 & emissivity & ... \\
+        Radius 3 & emissivity & ... \\
+        ... & ... & ... \\
+    \end{tabular}
+\end{table}
+Slab radius should be specified in centimeters. Opacities are in cm^-1.
+If you want to change reading behavour, see {\it CContinuum::readOpacity} method in "continuum.cpp" file.
 
-{\bf Emis\_Lines\_SectorNo1\_Age10.00Myr.dat} - file with lines emissivity data. Each row 
+\subsection{Lines Emissivity}
+{\bf Emis\_Lines\_SectorNo\{SectorNo\}\_Age10.00Myr.dat} - file with lines emissivity data. Each row
 corresponds to sector slab. First 2 rows has heading, according to standart Cloudy 
 "punch line emisivity" command, \cite{Cloudy}. Next rows contain slab outer radius in first column, 
 and emissivity values for each emission line in following columns. File is required.
+The structure is following:
+\begin{table}[H]
+    \begin{tabular}{llll}
+        heading & & & \\
+        heading & line name & line name & ...\\
+        Radius 1 & emissivity & emissivity & ... \\
+        Radius 2 & emissivity & emissivity & ... \\
+        Radius 3 & emissivity & emissivity & ... \\
+        ... & ... & ... & ... \\
+    \end{tabular}
+\end{table}
+Slab radius should be specified in centimeters. Emissivities are in erg * cm^-3 * sec^-1).
+If you want to change reading behavour, see {\it CLines::readLines} method in "lines.cpp" file.
 
+    {\bf Important Note: } you can specify only lines defined in known lines database. To check if line exists
+    and supported you can search {\it data/database/line_ch.data} for line label or in {\it data/database/line_en.data}.
+    If you can't find desired line - you can add it by editing these files. It's highly recommended, however, to add any new lines
+    in the end of files. Also, if you edit these files - don't forget to copy them before you update DiffRay. Otherwise.
+    data you changed will be overwriten.
+
+\subsection{Chemical Abundance}
 {\bf Abund1\_Age10.00Myr.dat} - file with elemental aundances data. Each row 
 corresponds to sector slab. First row should have valid column headings
 with element names, provided as first 4 symbols of full name. 
@@ -152,6 +200,19 @@ with element names, provided as first 4 symbols of full name.
 format, see \cite{Cloudy}).
 Next rows contain slab outer radius in first column, 
 and elemental abundances for each element in following columns. File is not required.
+The structure is following:
+\begin{table}[H]
+    \begin{tabular}{llll}
+        heading & Element 1 label & Element 2 label & ...\\
+        Radius 1 & abundance value & abundance value & ... \\
+        Radius 2 & abundance value & abundance value & ... \\
+        Radius 3 & abundance value & abundance value & ... \\
+        ... & ... & ... & ... \\
+    \end{tabular}
+\end{table}
+Slab radius should be specified in centimeters. Emissivities are in erg * cm^-3 * sec^-1).
+If you want to change reading behavour, see {\it CLines::readLines} method in "lines.cpp" file.
+
 
 \subsection{commands.ini file}
 
