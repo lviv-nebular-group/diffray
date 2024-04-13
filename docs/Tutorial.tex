@@ -245,8 +245,8 @@ contained into commands.ini file into instalation root directory.
 An example is distributed with code source. \\
 
 \subsection{IO settings}
-print directory "path to your output folder, relative to instalation root directory"\\
-input directory "path to input data files folder, relative to instalation root directory"\\
+{\it print directory "path to your output folder, relative to instalation root directory"} - set path to folder where output files will be located\\
+{\it input directory "path to input data files folder, relative to instalation root directory"} - set path to folder with input data\\
 
 Example:\\
 print directory result/ngc/ism0/140\\
@@ -256,7 +256,7 @@ Please, note that paths should be provided without quotes!\\
 \subsection{Geometry and distance}
 Commands that control object position in space.
 {\bf Distance}\\
-distance log10\_dist units.\\
+{\it distance log10\_dist units}.\\
 
 Example:\\ 
 distance 19.87 km \\
@@ -264,9 +264,9 @@ distance 19.87 km \\
 Supported units are meters, kilometers, centimeters.
 
 {\bf Object}\\
-phi x , x - objects azimuthal rotation angle relating to observer sight ray in radians;\\
-theta x , x - objects vertical rotation angle relating to observer sight ray in radians;\\
-age x, x - object age, or another models bundle identifier; Currently doesn't have any impact on any calculations\\
+{\it object phi x} , x - objects azimuthal rotation angle relating to observer sight ray in radians;\\
+{\it object theta x} , x - objects vertical rotation angle relating to observer sight ray in radians;\\
+{\it object age x}, x - object age, or another models bundle identifier; Currently doesn't have any impact on any calculations\\
 
 Example:\\
 object phi 0.76\\
@@ -275,11 +275,11 @@ object age 50\\
 
 \subsection{Calculation and integration options}
 {\bf Integration}\\
-maxiterations x, x - maximum code iterations. This option is useful to prevent code
+{\it integration maxiterations x}, x - maximum code iterations. This option is useful to prevent code
 falling into endless loop when trying to converge.\\
-precision x, x - acceptable convergence between iterations, 0.01 - 1\%.
-mode outw - switches code to Outward Only mode, is good thing for tests.\\
-predictive on - turns on additional iteration, that runs before main process of splitting object onto spatial angles and solving
+{\it integration precision x}, x - acceptable convergence between iterations, 0.01 - 1\%. \\
+{\it integration mode outw} - switches code to Outward Only mode, is good thing for tests.\\
+{\it integration predictive on} - turns on additional iteration, that runs before main process of splitting object onto spatial angles and solving
 radiative transfer for those. This step tries to predict how much fluxes are changed along different sightlines within some angular sector
 to determine desired initial angular integration step. It is recommended to turn on only in case of object with complex geometry and/or
 significant spacial inhomogenities.
@@ -290,20 +290,20 @@ integration maxiterations 12\\
 integration predictive off\\
 
 {\bf Calculation}\\
-calculation \{scope\} on/off - controls what kind of calculations DiffRay should perform.
+calculation \{scope\} on/off - controls what kind of calculations DiffRay should perform. \\
 
-opacity on/off - turn on/off opacity calculation (turning this off assumes that environment is very opticlly thin for all
-quantum)
-continuum on/off - turn on/off radiative transfer for continuum. Turning off will make DiffRay to calculate only line fluxes
-abundance on/off - turn on/off calculation of weighted elemental abundances within volume cut by aperture/along observer sightline. Once you turn this on,
-abundance data files are required (See \ref{dataAbund} for details).
-overview on/off - turn on/off calculation of average electron temperature and density within volume cut by aperture/along observer sightline. Once you turn this on,
-abundance data files are required (See \ref{dataOverview} for details).
+{\it opacity on/off} - turn on/off opacity calculation (turning this off assumes that environment is very opticlly thin for all
+quantum) \\
+{\it continuum on/off} - turn on/off radiative transfer for continuum. Turning off will make DiffRay to calculate only line fluxes \\
+{\it abundance on/off} - turn on/off calculation of weighted elemental abundances within volume cut by aperture/along observer sightline. Once you turn this on,
+abundance data files are required (See \ref{dataAbund} for details). \\
+{\it overview on/off} - turn on/off calculation of average electron temperature and density within volume cut by aperture/along observer sightline. Once you turn this on,
+abundance data files are required (See \ref{dataOverview} for details). \\
 
 
 \subsection{Aperture}
 
-aperture phi theta w h - Adds aperture to list of apertures to be calculated. 
+{\it aperture phi theta w h} - Adds aperture to list of apertures to be calculated.
 Here phi - azimuthal aperture position, theta - vertical position relative to ray
 from observer to center of object. w, h - aperture width and height. All values
 should be provided into radians.\\
