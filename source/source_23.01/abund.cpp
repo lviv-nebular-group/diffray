@@ -140,69 +140,7 @@ int Abund::getElementList(int irow,char str[1000])
 
     	Abund::nElements = iel - 2;
 	}
-	//printf("%d; %d\n", irow, CLine::readen);
-	/*int lineIds[100];
-	int linePos[100];
 
-	int idSorted[100];
-	printf("-----\n");
-	if(irow==1 && Abund::readen==0)
-	{
-		Abund::readen = 1;
-		char * pch;
-		int il = 0;
-		for(int i=0;i<CLine::ndatabase;i++)
-		{
-			pch=strstr(str,CLine::linesCapDB[i]);
-			
-			int pos = pch - str + 1;
-
-			if(pos>4)
-			{
-				printf("%s  ->  %d\n", CLine::linesCapDB[i], pos);
-				bool found = false;
-				for(int j=0;j<il;j++)
-				{
-					if(linePos[j] == pos)
-					{
-						found = true;
-					}
-				}
-				if(!found)
-				{	
-					linePos[il] = pos;
-					lineIds[il] = i;
-					il++;
-				}
-			}
-			
-		}
-
-		for(int i=0;i<il;i++)
-		{
-			for(int j=0;j<il-i-1;j++)
-			{
-				if(linePos[j]>linePos[j+1])
-				{
-					int pos_next = linePos[j+1];
-					int id_next  = lineIds[j+1];
-					linePos[j+1] = linePos[j];
-					lineIds[j+1] = lineIds[j];
-					linePos[j] = pos_next;
-					lineIds[j] = id_next;
-				}
-			}
-		}
-
-		for(int i=0;i<il;i++)
-		{
-			CLine::lineIds[i] = lineIds[i];
-			printf("%d --- %d (%d)\n", lineIds[i],linePos[i],il);
-		}
-
-		printf("TTTTT\n");
-
-	}*/
 
 	return 1;
 }

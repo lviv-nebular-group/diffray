@@ -146,7 +146,7 @@ The structure is following:
         ... & ... & ... \\
     \end{tabular}
 \end{table}
-Slab radius should be specified in centimeters. Emissivities are in erg * cm^-3 * sec^-1).
+Slab radius should be specified in centimeters. Emissivities are in $erg * cm^-3 * sec^-1$).
 If you want to change reading behavour, see {\it CContinuum::readEmissivity} method in "continuum.cpp" file.
 
 \subsection{Continuum opacities map}
@@ -164,7 +164,7 @@ The structure is following:
         ... & ... & ... \\
     \end{tabular}
 \end{table}
-Slab radius should be specified in centimeters. Opacities are in cm^-1.
+Slab radius should be specified in centimeters. Opacities are in $cm^-1$.
 If you want to change reading behavour, see {\it CContinuum::readOpacity} method in "continuum.cpp" file.
 
 \subsection{Lines Emissivity}
@@ -183,7 +183,7 @@ The structure is following:
         ... & ... & ... & ... \\
     \end{tabular}
 \end{table}
-Slab radius should be specified in centimeters. Emissivities are in erg * cm^-3 * sec^-1).
+Slab radius should be specified in centimeters. Emissivities are in $erg * cm^-3 * sec^-1$).
 If you want to change reading behavour, see {\it CLines::readLines} method in "lines.cpp" file.
 
     {\bf Important Note: } you can specify only lines defined in known lines database. To check if line exists
@@ -210,8 +210,8 @@ The structure is following:
         ... & ... & ... & ... \\
     \end{tabular}
 \end{table}
-Slab radius should be specified in centimeters. Emissivities are in erg * cm^-3 * sec^-1).
-If you want to change reading behavour, see {\it CLines::readLines} method in "lines.cpp" file.
+Slab radius should be specified in centimeters. Abundances are represented as $log_10(Element Particle Count / Total Particle Count)$.
+If you want to change reading behavour, see {\it Abund::getElementList} method in "abund.cpp" file.
 
 
 \subsection{commands.ini file}
