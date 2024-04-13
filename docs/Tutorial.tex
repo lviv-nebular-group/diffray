@@ -193,6 +193,7 @@ If you want to change reading behavour, see {\it CLines::readLines} method in "l
     data you changed will be overwriten.
 
 \subsection{Chemical Abundance}
+\label{dataAbund}
 {\bf Abund\{SectorNo\}\_Age10.00Myr.dat} - file with elemental aundances data. Each row
 corresponds to sector slab. First row should have valid column headings
 with element names, provided as first 4 symbols of full name. 
@@ -214,6 +215,7 @@ Slab radius should be specified in centimeters. Abundances are represented as $l
 If you want to change reading behavour, see {\it Abund::getElementList} method in "abund.cpp" file.
 
 \subsection{Physical Conditions Overview File}
+\label{dataOverview}
 {\bf Overview\{SectorNo\}\_Age10.00Myr.dat} - file with additional data about physical conditions. Each row
 corresponds to sector slab. First row is heading.
 (\#Depth		Te	Htot hden eden ..., Garry Ferlands Cloudy output of {\it punch overview}
@@ -242,7 +244,7 @@ contained into commands.ini file into instalation root directory.
 
 An example is distributed with code source. \\
 
-{\bf IO settings}\\
+\subsection{IO settings}
 print directory "path to your output folder, relative to instalation root directory"\\
 input directory "path to input data files folder, relative to instalation root directory"\\
 
@@ -251,6 +253,8 @@ print directory result/ngc/ism0/140\\
 input directory data/ngc1569nograin\\
 Please, note that paths should be provided without quotes!\\
 
+\subsection{Geometry and distance}
+Commands that control object position in space.
 {\bf Distance}\\
 distance log10\_dist units.\\
 
@@ -262,24 +266,42 @@ Supported units are meters, kilometers, centimeters.
 {\bf Object}\\
 phi x , x - objects azimuthal rotation angle relating to observer sight ray in radians;\\
 theta x , x - objects vertical rotation angle relating to observer sight ray in radians;\\
-age x, x - object age, or another models bundle identifier;\\
+age x, x - object age, or another models bundle identifier; Currently doesn't have any impact on any calculations\\
 
 Example:\\
 object phi 0.76\\
 object theta 0.21\\
 object age 50\\
 
+\subsection{Calculation and integration options}
 {\bf Integration}\\
 maxiterations x, x - maximum code iterations. This option is useful to prevent code
 falling into endless loop when trying to converge.\\
 precision x, x - acceptable convergence between iterations, 0.01 - 1\%.
 mode outw - switches code to Outward Only mode, is good thing for tests.\\
+predictive on - turns on additional iteration, that runs before main process of splitting object onto spatial angles and solving
+radiative transfer for those. This step tries to predict how much fluxes are changed along different sightlines within some angular sector
+to determine desired initial angular integration step. It is recommended to turn on only in case of object with complex geometry and/or
+significant spacial inhomogenities.
 
 Example:\\
 integration precision 0.005\\
 integration maxiterations 12\\
+integration predictive off\\
 
-{\bf Aperture}\\
+{\bf Calculation}\\
+calculation \{scope\} on/off - controls what kind of calculations DiffRay should perform.
+
+opacity on/off - turn on/off opacity calculation (turning this off assumes that environment is very opticlly thin for all
+quantum)
+continuum on/off - turn on/off radiative transfer for continuum. Turning off will make DiffRay to calculate only line fluxes
+abundance on/off - turn on/off calculation of weighted elemental abundances within volume cut by aperture/along observer sightline. Once you turn this on,
+abundance data files are required (See \ref{dataAbund} for details).
+overview on/off - turn on/off calculation of average electron temperature and density within volume cut by aperture/along observer sightline. Once you turn this on,
+abundance data files are required (See \ref{dataOverview} for details).
+
+
+\subsection{Aperture}
 
 aperture phi theta w h - Adds aperture to list of apertures to be calculated. 
 Here phi - azimuthal aperture position, theta - vertical position relative to ray
