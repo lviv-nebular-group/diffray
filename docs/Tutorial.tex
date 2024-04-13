@@ -193,7 +193,7 @@ If you want to change reading behavour, see {\it CLines::readLines} method in "l
     data you changed will be overwriten.
 
 \subsection{Chemical Abundance}
-{\bf Abund1\_Age10.00Myr.dat} - file with elemental aundances data. Each row 
+{\bf Abund\{SectorNo\}\_Age10.00Myr.dat} - file with elemental aundances data. Each row
 corresponds to sector slab. First row should have valid column headings
 with element names, provided as first 4 symbols of full name. 
 (\#Depth		H	HELI	LITH	BERY..., Garry Ferlands Cloudy output 
@@ -203,18 +203,38 @@ and elemental abundances for each element in following columns. File is not requ
 The structure is following:
 \begin{table}[H]
     \begin{tabular}{llll}
-        heading & Element 1 label & Element 2 label & ...\\
-        Radius 1 & abundance value & abundance value & ... \\
-        Radius 2 & abundance value & abundance value & ... \\
-        Radius 3 & abundance value & abundance value & ... \\
+        Heading & Element 1 label & Element 2 label & ...\\
+        Radius 1 & Abundance Value & Abundance Value & ... \\
+        Radius 2 & Abundance Value & Abundance Value & ... \\
+        Radius 3 & Abundance Value & Abundance Value & ... \\
         ... & ... & ... & ... \\
     \end{tabular}
 \end{table}
 Slab radius should be specified in centimeters. Abundances are represented as $log_10(Element Particle Count / Total Particle Count)$.
 If you want to change reading behavour, see {\it Abund::getElementList} method in "abund.cpp" file.
 
+\subsection{Physical Conditions Overview File}
+{\bf Overview\{SectorNo\}\_Age10.00Myr.dat} - file with additional data about physical conditions. Each row
+corresponds to sector slab. First row is heading.
+(\#Depth		Te	Htot hden eden ..., Garry Ferlands Cloudy output of {\it punch overview}
+format, see \cite{Cloudy}).
+Next rows contain slab outer radius in first column,
+and corresponding values, like electron temperature, electron density and so on.
+The structure is following:
+\begin{table}[H]
+    \begin{tabular}{llllll}
+        Heading & & & & & \\
+        Radius 1 & Electron Temperature & Heating Rate & Density & Electron Density & ... \\
+        Radius 2 & Electron Temperature & Heating Rate & Density & Electron Density & ... \\
+        Radius 3 & Electron Temperature & Heating Rate & Density & Electron Density & ... \\
+        ... & ... & ... & ... & ... & ... \\
+    \end{tabular}
+\end{table}
+Slab radius should be specified in centimeters. Physical values are represented mostly in log scale.
+If you want to change reading behavour, columns order and so on, see {\it Physics::readPhysics} method in "physics.cpp" file.
 
-\subsection{commands.ini file}
+
+\section{Commands file}
 
 Once you have compiled code and prepared data files, you should write some 
 instructions for how and what code should calculated. These instructions are 
