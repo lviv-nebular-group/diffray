@@ -248,7 +248,7 @@ An example is distributed with code source. \\
 {\it print directory "path to your output folder, relative to instalation root directory"} - set path to folder where output files will be located\\
 {\it input directory "path to input data files folder, relative to instalation root directory"} - set path to folder with input data\\
 
-Example:\\
+{\bf Example:}\\
 print directory result/ngc/ism0/140\\
 input directory data/ngc1569nograin\\
 Please, note that paths should be provided without quotes!\\
@@ -258,7 +258,7 @@ Commands that control object position in space.
 {\bf Distance}\\
 {\it distance log10\_dist units}.\\
 
-Example:\\ 
+{\bf Example:}\\
 distance 19.87 km \\
 (Distance to object is adopted of $10^{19.87}$ kilometers.
 Supported units are meters, kilometers, centimeters.
@@ -268,7 +268,7 @@ Supported units are meters, kilometers, centimeters.
 {\it object theta x} , x - objects vertical rotation angle relating to observer sight ray in radians;\\
 {\it object age x}, x - object age, or another models bundle identifier; Currently doesn't have any impact on any calculations\\
 
-Example:\\
+{\bf Example:}\\
 object phi 0.76\\
 object theta 0.21\\
 object age 50\\
@@ -284,20 +284,19 @@ radiative transfer for those. This step tries to predict how much fluxes are cha
 to determine desired initial angular integration step. It is recommended to turn on only in case of object with complex geometry and/or
 significant spacial inhomogenities.
 
-Example:\\
+{\bf Example:}\\
 integration precision 0.005\\
 integration maxiterations 12\\
 integration predictive off\\
 
 {\bf Calculation}\\
 calculation \{scope\} on/off - controls what kind of calculations DiffRay should perform. \\
-
-{\it opacity on/off} - turn on/off opacity calculation (turning this off assumes that environment is very opticlly thin for all
+{\it calculation opacity on/off} - turn on/off opacity calculation (turning this off assumes that environment is very opticlly thin for all
 quantum) \\
-{\it continuum on/off} - turn on/off radiative transfer for continuum. Turning off will make DiffRay to calculate only line fluxes \\
-{\it abundance on/off} - turn on/off calculation of weighted elemental abundances within volume cut by aperture/along observer sightline. Once you turn this on,
+{\it calculation continuum on/off} - turn on/off radiative transfer for continuum. Turning off will make DiffRay to calculate only line fluxes \\
+{\it calculation abundance on/off} - turn on/off calculation of weighted elemental abundances within volume cut by aperture/along observer sightline. Once you turn this on,
 abundance data files are required (See \ref{dataAbund} for details). \\
-{\it overview on/off} - turn on/off calculation of average electron temperature and density within volume cut by aperture/along observer sightline. Once you turn this on,
+{\it calculation overview on/off} - turn on/off calculation of average electron temperature and density within volume cut by aperture/along observer sightline. Once you turn this on,
 abundance data files are required (See \ref{dataOverview} for details). \\
 
 
@@ -308,7 +307,7 @@ Here phi - azimuthal aperture position, theta - vertical position relative to ra
 from observer to center of object. w, h - aperture width and height. All values
 should be provided into radians.\\
 
-Example:\\
+{\bf Example:}\\
 apperture add 0 0 0.000014537 0.000014537\\
 apperture add 0.000464 0.0000139 0.000014537 0.000014537\\
 apperture add -0.000271 -0.0000102 0.000014537 0.000014537\\
