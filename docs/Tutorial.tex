@@ -343,7 +343,6 @@ More output files with additional formats are planned for the future.
 \subsection{Chemical Abundances}
 {\bf abmass.txt} - contains the abundances of elements within a volume cut by an aperture within the object, weighted by mass.
 It has two rows: a heading and a list of weighted abundances ($12 - \log_{10}(n(\text{element})/n(H))$). \\
-
 {\bf abemso.txt} - contains the abundances of elements within a volume cut by an aperture within the object, weighted by oxygen
 lines emissivity ($e(O3  5007\text{\AA}) + e(O3  4363\text{\AA}) + e(O3  4959\text{\AA}) + e(O2  3726\text{\AA}) + e(O2  3729\text{\AA})$).
 It has two rows: a heading and a list of weighted abundances ($12 - \log_{10}(n(\text{element})/n(H))$).
@@ -351,7 +350,7 @@ It has two rows: a heading and a list of weighted abundances ($12 - \log_{10}(n(
 \subsection{Isophotes}
 
 {\bf isophote\_\{index\}.dat} - file containing 2D data for drawing flux maps.
-The 1st and 2nd columns represent spatial angles, and the 3rd column lists the fluxes calculated from the direction determined by these spatial angles.
+The 1st and 2nd columns represent spatial angles, and the 3rd column lists the fluxes calculated from the direction determined by these spatial angles. \\
 
 When 'isophote' commands are present, gnuplot scripts for visualization are generated and located in the "plots"
 folder within your output directory.
