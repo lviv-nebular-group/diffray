@@ -106,7 +106,8 @@ Here, the Sector number is the number of sectors represented by the file. The Ag
 A complete list of supported data files and their format can be found in the following subsections.
 
 \subsection{Continuum Mesh}
-{\bf Continuum\{SectorNo\}\_Last\_Age\{ObjectAge\}.dat} is a file with the continuum energy mesh structure. Each row should contain, in the first column, continuum cell energy in Rydbergs. The file is required. The structure of the file is as follows:
+{\bf Continuum\{SectorNo\}\_Last\_Age\{ObjectAge\}.dat} is required file with the continuum energy mesh structure.
+Each row should contain, in the first column, continuum cell energy in Rydbergs. The structure of the file is as follows:
 \begin{table}[H]
     \begin{tabular}{ll}
         cell 1 energy & \ldots \\
@@ -116,11 +117,32 @@ A complete list of supported data files and their format can be found in the fol
         \ldots & \ldots \\
     \end{tabular}
 \end{table}
-Continuum cell energy should be represented in Rydberg units. The file can contain an arbitrary amount of columns, but only the first one is used, while the rest will be ignored. If you want to change the reading behavior, see the {\it CContinuum::readMesh} method in the "continuum.cpp" file.
+Continuum cell energy should be represented in Rydberg units. The file can contain an arbitrary amount of columns,
+but only the first one is used, while the rest will be ignored.
+If you want to change the reading behavior, see the {\it CContinuum::readMesh} method in the "continuum.cpp" file.
+
+\subsection{Incident Continuum}
+{\bf Continuum\{SectorNo\}\_SB99\_Age\{ObjectAge\}.dat} is required file with the incident continuum of the ionizing radiation source.
+Each row contains continuum cell energy in Rydbergs in the first column, and incident continuum flux ($\mathrm{erg} \cdot \mathrm{cm}^{-2} \cdot \mathrm{s}^{-1}$) in the second one.
+The structure of the file is as follows:
+\begin{table}[H]
+    \begin{tabular}{ll}
+        cell 1 energy & flux \\
+        cell 2 energy & flux \\
+        cell 3 energy & flux \\
+        cell 4 energy & flux \\
+        \ldots & \ldots \\
+    \end{tabular}
+\end{table}
+
+If you want to change the reading behavior, see the {\it CContinuum::readInwardFluxes} method in the "continuum.cpp" file.
+
 \subsection{Continuum emissivities map}
-{\bf Emis\_Cont\_SectorNo\{SectorNo\}\_Age\{ObjectAge\}.dat} is a file with continuum emissivity data. Each row
-corresponds to sector slab. First row has only one value - inner radius. Next rows contain slab outer radius in first column, 
-and net volume emissivity values for each energy cell in corresponding slab in following columns. File is required. Note, that amount of columns in this file should
+{\bf Emis\_Cont\_SectorNo\{SectorNo\}\_Age\{ObjectAge\}.dat} is required file with continuum emissivity data. Each row
+corresponds to sector slab. First row contains only the value of inner radius.
+Next rows contain slab outer radius in first column,
+and net volume emissivity values for each energy cell in corresponding slab in following columns.
+Note, that amount of columns in this file should
 be equal to amount of rows in \\
 {\bf Continuum\{SectorNo\}\_Last\_Age\{ObjectAge\}.dat} + 1 column for radius.
 The structure is following:
@@ -137,7 +159,10 @@ Slab radius should be specified in centimeters. Emissivities are in $erg \cdot c
 If you want to change reading behavour, see {\it CContinuum::readEmissivity} method in "continuum.cpp" file.
 
 \subsection{Continuum opacities map}
-{\bf Opac\_Cont\_SectorNo\{SectorNo\}\_Age\{ObjectAge\}.dat} is a file with opacity data for each continuum cell. Each row corresponds to a sector slab. The first row has only one value - the inner radius. Subsequent rows contain the slab's outer radius in the first column, and opacity values for each energy cell in the following columns. This file is used both for calculating continuum and line optical depths. The file is required. The structure is as follows:
+{\bf Opac\_Cont\_SectorNo\{SectorNo\}\_Age\{ObjectAge\}.dat} is required file with opacity data for each continuum cell.
+Each row corresponds to a sector slab. The first row has only one value - the inner radius.
+Subsequent rows contain the slab's outer radius in the first column, and opacity values for each energy cell in the following columns.
+This file is used both for calculating continuum and line optical depths. The structure is as follows:
 \begin{table}[H]
     \begin{tabular}{lll}
         inner radius & & \\
@@ -151,7 +176,11 @@ Slab radius should be specified in centimeters. Opacities are expressed in $cm^{
 If you want to change reading behavior, see the {\it CContinuum::readOpacity} method in the "continuum.cpp" file.
 
 \subsection{Lines Emissivity}
-{\bf Emis\_Lines\_SectorNo\{SectorNo\}\_Age\{ObjectAge\}.dat} is a file with lines emissivity data. Each row corresponds to a sector slab. The first two rows have headings, according to the standard Cloudy "punch line emissivity" command, \cite{Cloudy}. Subsequent rows contain the slab's outer radius in the first column, and emissivity values for each emission line in the following columns. The file is required. The structure is as follows:
+{\bf Emis\_Lines\_SectorNo\{SectorNo\}\_Age\{ObjectAge\}.dat} is required file with lines emissivity data.
+Each row corresponds to a sector slab. The first two rows have headings, according to the standard
+Cloudy "punch line emissivity" command, \cite{Cloudy}.
+Subsequent rows contain the slab's outer radius in the first column, and emissivity values for each emission line in the following columns.
+The structure is as follows:
 \begin{table}[H]
     \begin{tabular}{llll}
         heading & & & \\
