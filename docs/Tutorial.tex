@@ -106,7 +106,7 @@ Here, the Sector number is the number of sectors represented by the file. The Ag
 A complete list of supported data files and their format can be found in the following subsections.
 
 \subsection{Continuum Mesh}
-{\bf Continuum\{SectorNo\}\_Last\_Age\{ObjectAge\}.dat} - a file with the continuum energy mesh structure. Each row should contain, in the first column, continuum cell energy in Rydbergs. The file is required. The structure of the file is as follows:
+{\bf Continuum\{SectorNo\}\_Last\_Age\{ObjectAge\}.dat} is a file with the continuum energy mesh structure. Each row should contain, in the first column, continuum cell energy in Rydbergs. The file is required. The structure of the file is as follows:
 \begin{table}[H]
     \begin{tabular}{ll}
         cell 1 energy & \ldots \\
@@ -121,7 +121,8 @@ Continuum cell energy should be represented in Rydberg units. The file can conta
 {\bf Emis\_Cont\_SectorNo\{SectorNo\}\_Age\{ObjectAge\}.dat} is a file with continuum emissivity data. Each row
 corresponds to sector slab. First row has only one value - inner radius. Next rows contain slab outer radius in first column, 
 and net volume emissivity values for each energy cell in corresponding slab in following columns. File is required. Note, that amount of columns in this file should
-be equal to amount of rows in {\bf Continuum\{SectorNo\}\_Last\_Age\{ObjectAge\}.dat} + 1 column for radius.
+be equal to amount of rows in \\
+{\bf Continuum\{SectorNo\}\_Last\_Age\{ObjectAge\}.dat} + 1 column for radius.
 The structure is following:
 \begin{table}[H]
     \begin{tabular}{lll}
@@ -136,7 +137,7 @@ Slab radius should be specified in centimeters. Emissivities are in $erg \cdot c
 If you want to change reading behavour, see {\it CContinuum::readEmissivity} method in "continuum.cpp" file.
 
 \subsection{Continuum opacities map}
-{\bf Opac\_Cont\_SectorNo{SectorNo}\_Age\{ObjectAge\}.dat} - a file with opacity data for each continuum cell. Each row corresponds to a sector slab. The first row has only one value - the inner radius. Subsequent rows contain the slab's outer radius in the first column, and opacity values for each energy cell in the following columns. This file is used both for calculating continuum and line optical depths. The file is required. The structure is as follows:
+{\bf Opac\_Cont\_SectorNo\{SectorNo\}\_Age\{ObjectAge\}.dat} is a file with opacity data for each continuum cell. Each row corresponds to a sector slab. The first row has only one value - the inner radius. Subsequent rows contain the slab's outer radius in the first column, and opacity values for each energy cell in the following columns. This file is used both for calculating continuum and line optical depths. The file is required. The structure is as follows:
 \begin{table}[H]
     \begin{tabular}{lll}
         inner radius & & \\
@@ -150,7 +151,7 @@ Slab radius should be specified in centimeters. Opacities are expressed in $cm^{
 If you want to change reading behavior, see the {\it CContinuum::readOpacity} method in the "continuum.cpp" file.
 
 \subsection{Lines Emissivity}
-{\bf Emis\_Lines\_SectorNo{SectorNo}\_Age\{ObjectAge\}.dat} - a file with lines emissivity data. Each row corresponds to a sector slab. The first two rows have headings, according to the standard Cloudy "punch line emissivity" command, \cite{Cloudy}. Subsequent rows contain the slab's outer radius in the first column, and emissivity values for each emission line in the following columns. The file is required. The structure is as follows:
+{\bf Emis\_Lines\_SectorNo\{SectorNo\}\_Age\{ObjectAge\}.dat} is a file with lines emissivity data. Each row corresponds to a sector slab. The first two rows have headings, according to the standard Cloudy "punch line emissivity" command, \cite{Cloudy}. Subsequent rows contain the slab's outer radius in the first column, and emissivity values for each emission line in the following columns. The file is required. The structure is as follows:
 \begin{table}[H]
     \begin{tabular}{llll}
         heading & & & \\
@@ -167,7 +168,7 @@ If you want to change reading behavior, see the {\it CLines::readLines} method i
     {\bf Important Note:} You can specify only lines defined in the known lines database. To check if a line exists and is supported, you can search the {\it data/database/line\_ch.data} for the line label or in {\it data/database/line\_en.data}. If you cannot find the desired line, you can add it by editing these files. It's highly recommended, however, to add any new lines at the end of the files. Also, if you edit these files, don't forget to copy them before you update DiffRay. Otherwise, the data you changed will be overwritten.
 
 \subsection{Chemical Abundance}
-{\bf Abund\{SectorNo\}\_Age\{ObjectAge\}.dat} - a file with elemental abundances data. Each row corresponds to a sector slab. The first row should have valid column headings with element names, provided as the first four symbols of the full name. (\#Depth H HELI LITH BERY\ldots, Garry Ferland's Cloudy output format, see \cite{Cloudy}). Subsequent rows contain the slab's outer radius in the first column, and elemental abundances for each element in the following columns. This file is not required. The structure is as follows:
+{\bf Abund\{SectorNo\}\_Age\{ObjectAge\}.dat} is a file with elemental abundances data. Each row corresponds to a sector slab. The first row should have valid column headings with element names, provided as the first four symbols of the full name. (\#Depth H HELI LITH BERY\ldots, Garry Ferland's Cloudy output format, see \cite{Cloudy}). Subsequent rows contain the slab's outer radius in the first column, and elemental abundances for each element in the following columns. This file is not required. The structure is as follows:
 \begin{table}[H]
     \begin{tabular}{llll}
         Heading & Element 1 label & Element 2 label & \ldots \\
@@ -282,7 +283,7 @@ in the directory specified with the output command.
 Output files will be stored in the output directory specified in the corresponding commands file command.
 
 \subsection{Emission Lines Results}
-{\bf linesarr.dat} - a file containing fluxes for each line specified in the line emissivities input file (see \ref{dataLines}).
+{\bf linesarr.dat} is a file containing fluxes for each line specified in the line emissivities input file (see \ref{dataLines}).
 Each row contains four columns: line label, Flux at observer ($\mathrm{erg} \cdot \mathrm{cm}^{-2} \cdot \mathrm{s}^{-1}$), Luminosity ($\log_{10}(\mathrm{erg} \cdot \mathrm{s}^{-1})$),
 and relative flux ($F(\text{line})/F(H_{\beta})$).\\
 {\bf llum.dat} - an alternative representation of line luminosities. The file contains only two rows: a header, and luminosities for each line specified in the line emissivities input file (see \ref{dataLines}).
