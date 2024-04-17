@@ -103,14 +103,14 @@ Here, the Sector number is the number of sectors represented by the file. The Ag
 A complete list of supported data files and their format can be found in the following subsections.
 
 \subsection{Continuum Mesh}
-{\bf Continuum{SectorNo}_Last_Age10.00Myr.dat} - a file with the continuum energy mesh structure. Each row should contain, in the first column, continuum cell energy in Rydbergs. The file is required. The structure of the file is as follows:
+{\bf Continuum{SectorNo}\_Last\_Age10.00Myr.dat} - a file with the continuum energy mesh structure. Each row should contain, in the first column, continuum cell energy in Rydbergs. The file is required. The structure of the file is as follows:
 \begin{table}[H]
     \begin{tabular}{ll}
-        cell 1 energy & ... \
-        cell 2 energy & ... \
-        cell 3 energy & ... \
-        cell 4 energy & ... \
-        ... & ... \
+        cell 1 energy & \ldots \
+        cell 2 energy & \ldots \
+        cell 3 energy & \ldots \
+        cell 4 energy & \ldots \
+        \ldots & \ldots \
     \end{tabular}
 \end{table}
 Continuum cell energy should be represented in Rydberg units. The file can contain an arbitrary amount of columns, but only the first one is used, while the rest will be ignored. If you want to change the reading behavior, see the {\it CContinuum::readMesh} method in the "continuum.cpp" file.
@@ -123,39 +123,39 @@ The structure is following:
 \begin{table}[H]
     \begin{tabular}{lll}
         inner radius & & \\
-        Radius 1 & emissivity & ... \\
-        Radius 2 & emissivity & ... \\
-        Radius 3 & emissivity & ... \\
-        ... & ... & ... \\
+        Radius 1 & emissivity & \ldots \\
+        Radius 2 & emissivity & \ldots \\
+        Radius 3 & emissivity & \ldots \\
+        \ldots & \ldots & \ldots \\
     \end{tabular}
 \end{table}
 Slab radius should be specified in centimeters. Emissivities are in $erg \cdot cm^-3 \cdot sec^-1$).
 If you want to change reading behavour, see {\it CContinuum::readEmissivity} method in "continuum.cpp" file.
 
 \subsection{Continuum opacities map}
-{\bf Opac_Cont_SectorNo{SectorNo}_Age10.00Myr.dat} - a file with opacity data for each continuum cell. Each row corresponds to a sector slab. The first row has only one value - the inner radius. Subsequent rows contain the slab's outer radius in the first column, and opacity values for each energy cell in the following columns. This file is used both for calculating continuum and line optical depths. The file is required. The structure is as follows:
+{\bf Opac\_Cont\_SectorNo{SectorNo}\_Age10.00Myr.dat} - a file with opacity data for each continuum cell. Each row corresponds to a sector slab. The first row has only one value - the inner radius. Subsequent rows contain the slab's outer radius in the first column, and opacity values for each energy cell in the following columns. This file is used both for calculating continuum and line optical depths. The file is required. The structure is as follows:
 \begin{table}[H]
     \begin{tabular}{lll}
         inner radius & & \
-        Radius 1 & opacity & ... \
-        Radius 2 & opacity & ... \
-        Radius 3 & opacity & ... \
-        ... & ... & ... \
+        Radius 1 & opacity & \ldots \
+        Radius 2 & opacity & \ldots \
+        Radius 3 & opacity & \ldots \
+        \ldots & \ldots & \ldots \
     \end{tabular}
 \end{table}
 Slab radius should be specified in centimeters. Opacities are expressed in $cm^{-1}$.
 If you want to change reading behavior, see the {\it CContinuum::readOpacity} method in the "continuum.cpp" file.
 
 \subsection{Lines Emissivity}
-{\bf Emis_Lines_SectorNo{SectorNo}_Age10.00Myr.dat} - a file with lines emissivity data. Each row corresponds to a sector slab. The first two rows have headings, according to the standard Cloudy "punch line emissivity" command, \cite{Cloudy}. Subsequent rows contain the slab's outer radius in the first column, and emissivity values for each emission line in the following columns. The file is required. The structure is as follows:
+{\bf Emis\_Lines\_SectorNo{SectorNo}\_Age10.00Myr.dat} - a file with lines emissivity data. Each row corresponds to a sector slab. The first two rows have headings, according to the standard Cloudy "punch line emissivity" command, \cite{Cloudy}. Subsequent rows contain the slab's outer radius in the first column, and emissivity values for each emission line in the following columns. The file is required. The structure is as follows:
 \begin{table}[H]
     \begin{tabular}{llll}
         heading & & & \
-        heading & line name & line name & ...\
-        Radius 1 & emissivity & emissivity & ... \
-        Radius 2 & emissivity & emissivity & ... \
-        Radius 3 & emissivity & emissivity & ... \
-        ... & ... & ... & ... \
+        heading & line name & line name & \ldots\
+        Radius 1 & emissivity & emissivity & \ldots \
+        Radius 2 & emissivity & emissivity & \ldots \
+        Radius 3 & emissivity & emissivity & \ldots \
+        \ldots & \ldots & \ldots & \ldots \
     \end{tabular}
 \end{table}
 Slab radius should be specified in centimeters. Emissivities are expressed in $erg \cdot cm^{-3} \cdot sec^{-1}$.
@@ -164,14 +164,14 @@ If you want to change reading behavior, see the {\it CLines::readLines} method i
     {\bf Important Note:} You can specify only lines defined in the known lines database. To check if a line exists and is supported, you can search the {\it data/database/line_ch.data} for the line label or in {\it data/database/line_en.data}. If you cannot find the desired line, you can add it by editing these files. It's highly recommended, however, to add any new lines at the end of the files. Also, if you edit these files, don't forget to copy them before you update DiffRay. Otherwise, the data you changed will be overwritten.
 
 \subsection{Chemical Abundance}
-{\bf Abund{SectorNo}_Age10.00Myr.dat} - a file with elemental abundances data. Each row corresponds to a sector slab. The first row should have valid column headings with element names, provided as the first four symbols of the full name. (#Depth H HELI LITH BERY..., Garry Ferland's Cloudy output format, see \cite{Cloudy}). Subsequent rows contain the slab's outer radius in the first column, and elemental abundances for each element in the following columns. This file is not required. The structure is as follows:
+{\bf Abund{SectorNo}\_Age10.00Myr.dat} - a file with elemental abundances data. Each row corresponds to a sector slab. The first row should have valid column headings with element names, provided as the first four symbols of the full name. (#Depth H HELI LITH BERY\ldots, Garry Ferland's Cloudy output format, see \cite{Cloudy}). Subsequent rows contain the slab's outer radius in the first column, and elemental abundances for each element in the following columns. This file is not required. The structure is as follows:
 \begin{table}[H]
     \begin{tabular}{llll}
-        Heading & Element 1 label & Element 2 label & ...\
-        Radius 1 & Abundance Value & Abundance Value & ... \
-        Radius 2 & Abundance Value & Abundance Value & ... \
-        Radius 3 & Abundance Value & Abundance Value & ... \
-        ... & ... & ... & ... \
+        Heading & Element 1 label & Element 2 label & \ldots\
+        Radius 1 & Abundance Value & Abundance Value & \ldots \
+        Radius 2 & Abundance Value & Abundance Value & \ldots \
+        Radius 3 & Abundance Value & Abundance Value & \ldots \
+        \ldots & \ldots & \ldots & \ldots \
     \end{tabular}
 \end{table}
 Slab radius should be specified in centimeters. Abundances are represented as $log_{10}(Element Particle Count / Total Particle Count)$. If you want to change reading behavior, see the {\it Abund::getElementList} method in the "abund.cpp" file.
@@ -180,16 +180,16 @@ Slab radius should be specified in centimeters. Abundances are represented as $l
 \label{dataOverview}
 {\bf Overview\{SectorNo\}\_Age10.00Myr.dat} - file with additional data about physical conditions. Each row
 corresponds to sector slab. The first row is a heading.
-(#Depth Te Htot hden eden ..., Garry Ferland's Cloudy output of the {\it punch overview}
+(#Depth Te Htot hden eden \ldots, Garry Ferland's Cloudy output of the {\it punch overview}
 format, see \cite{Cloudy}). Subsequent rows contain the slab's outer radius in the first column,
 and corresponding values, like electron temperature, electron density, and so on. The structure is as follows:
 \begin{table}[H]
     \begin{tabular}{llllll}
         Heading & & & & & \
-        Radius 1 & Electron Temperature & Heating Rate & Density & Electron Density & ... \
-        Radius 2 & Electron Temperature & Heating Rate & Density & Electron Density & ... \
-        Radius 3 & Electron Temperature & Heating Rate & Density & Electron Density & ... \
-        ... & ... & ... & ... & ... & ... \
+        Radius 1 & Electron Temperature & Heating Rate & Density & Electron Density & \ldots \
+        Radius 2 & Electron Temperature & Heating Rate & Density & Electron Density & \ldots \
+        Radius 3 & Electron Temperature & Heating Rate & Density & Electron Density & \ldots \
+        \ldots & \ldots & \ldots & \ldots & \ldots & \ldots \
     \end{tabular}
 \end{table}
 Slab radius should be specified in centimeters. Physical values are mostly represented on a logarithmic scale. If you want to change reading behavior, column order, and so on, see the {\it Physics::readPhysics} method in the "physics.cpp" file.
