@@ -138,7 +138,7 @@ If you want to change reading behavour, see {\it CContinuum::readEmissivity} met
 {\bf Opac\_Cont\_SectorNo{SectorNo}\_Age{ObjectAge}.dat} - a file with opacity data for each continuum cell. Each row corresponds to a sector slab. The first row has only one value - the inner radius. Subsequent rows contain the slab's outer radius in the first column, and opacity values for each energy cell in the following columns. This file is used both for calculating continuum and line optical depths. The file is required. The structure is as follows:
 \begin{table}[H]
     \begin{tabular}{lll}
-        inner radius & & \
+        inner radius & & \\
         Radius 1 & opacity & \ldots \\
         Radius 2 & opacity & \ldots \\
         Radius 3 & opacity & \ldots \\
@@ -152,7 +152,7 @@ If you want to change reading behavior, see the {\it CContinuum::readOpacity} me
 {\bf Emis\_Lines\_SectorNo{SectorNo}\_Age{ObjectAge}.dat} - a file with lines emissivity data. Each row corresponds to a sector slab. The first two rows have headings, according to the standard Cloudy "punch line emissivity" command, \cite{Cloudy}. Subsequent rows contain the slab's outer radius in the first column, and emissivity values for each emission line in the following columns. The file is required. The structure is as follows:
 \begin{table}[H]
     \begin{tabular}{llll}
-        heading & & & \
+        heading & & & \\
         heading & line name & line name & \ldots \\
         Radius 1 & emissivity & emissivity & \ldots \\
         Radius 2 & emissivity & emissivity & \ldots \\
@@ -173,7 +173,7 @@ If you want to change reading behavior, see the {\it CLines::readLines} method i
         Radius 1 & Abundance Value & Abundance Value & \ldots \\
         Radius 2 & Abundance Value & Abundance Value & \ldots \\
         Radius 3 & Abundance Value & Abundance Value & \ldots \\
-        \ldots & \ldots & \ldots & \ldots \
+        \ldots & \ldots & \ldots & \ldots \\
     \end{tabular}
 \end{table}
 Slab radius should be specified in centimeters. Abundances are represented as $log_{10}(Element Particle Count / Total Particle Count)$. If you want to change reading behavior, see the {\it Abund::getElementList} method in the "abund.cpp" file.
@@ -187,7 +187,7 @@ format, see \cite{Cloudy}). Subsequent rows contain the slab's outer radius in t
 and corresponding values, like electron temperature, electron density, and so on. The structure is as follows:
 \begin{table}[H]
     \begin{tabular}{llllll}
-        Heading & & & & & \
+        Heading & & & & & \\
         Radius 1 & Electron Temperature & Heating Rate & Density & Electron Density & \ldots \\
         Radius 2 & Electron Temperature & Heating Rate & Density & Electron Density & \ldots \\
         Radius 3 & Electron Temperature & Heating Rate & Density & Electron Density & \ldots \\
@@ -200,42 +200,42 @@ Slab radius should be specified in centimeters. Physical values are mostly repre
 
 Once you have compiled the code and prepared the data files, you should write some instructions for how and what the code should calculate. These instructions are contained in the commands.ini file in the installation root directory.
 
-An example is distributed with the code source. \
+An example is distributed with the code source. \\
 
 \subsection{IO settings}
 {\it print directory "path to your output folder, relative to the installation root directory"} - set the path to the folder where output files will be located\
     {\it input directory "path to input data files folder, relative to the installation root directory"} - set the path to the folder with input data\
 
     {\bf Example:}\
-print directory result/ngc/ism0/140\
-input directory data/ngc1569nograin\
-Please note that paths should be provided without quotes!\
+print directory result/ngc/ism0/140\\
+input directory data/ngc1569nograin\\
+Please note that paths should be provided without quotes!\\
 
 \subsection{Geometry and distance}
 Commands that control the object's position in space.
-    {\bf Distance}\
-    {\it distance log10_dist units}.\
+    {\bf Distance}\\
+    {\it distance log10\_dist units}.\\
 
-    {\bf Example:}\
-distance 19.87 km \
+    {\bf Example:}\\
+distance 19.87 km \\
 (The distance to the object is adopted to be $10^{19.87}$ kilometers.
 Supported units are meters, kilometers, centimeters.
 
-    {\bf Object}\
-    {\it object phi x}, x - object's azimuthal rotation angle relating to the observer's sight ray in radians;\
-    {\it object theta x}, x - object's vertical rotation angle relating to the observer's sight ray in radians;\
-    {\it object age x}, x - object age, or another model's bundle identifier; Currently, it doesn't have any impact on calculations.\
+    {\bf Object}\\
+    {\it object phi x}, x - object's azimuthal rotation angle relating to the observer's sight ray in radians;\\
+    {\it object theta x}, x - object's vertical rotation angle relating to the observer's sight ray in radians;\\
+    {\it object age x}, x - object age, or another model's bundle identifier; Currently, it doesn't have any impact on calculations.\\
 
-    {\bf Example:}\
-object phi 0.76\
-object theta 0.21\
-object age 50\
+    {\bf Example:}\\
+object phi 0.76\\
+object theta 0.21\\
+object age 50\\
 
 \subsection{Calculation and integration options}
-{\bf Integration}\
-    {\it integration maxiterations x}, x - maximum code iterations. This option is useful to prevent the code from falling into an endless loop when trying to converge.\
-    {\it integration precision x}, x - acceptable convergence between iterations, 0.01 - 1%. \
-    {\it integration mode outw} - switches code to Outward Only mode, is good for tests.\
+{\bf Integration}\\
+    {\it integration maxiterations x}, x - maximum code iterations. This option is useful to prevent the code from falling into an endless loop when trying to converge.\\
+    {\it integration precision x}, x - acceptable convergence between iterations, 0.01 - 1\%. \\
+    {\it integration mode outw} - switches code to Outward Only mode, is good for tests.\\
     {\it integration predictive on} - turns on an additional iteration that runs before the main process of splitting the object into spatial angles and solving
 radiative transfer for those. This step tries to predict how much fluxes are changed along different sightlines within some angular sector
 to determine the desired initial angular integration step. It is recommended to turn on only in the case of an object with complex geometry and/or
@@ -247,20 +247,20 @@ integration maxiterations 12\\
 integration predictive off\\
 
 {\bf Calculation}\
-calculation {scope} on/off - controls what kind of calculations DiffRay should perform. \
+calculation {scope} on/off - controls what kind of calculations DiffRay should perform. \\
     {\it calculation opacity on/off} - turn on/off opacity calculation (turning this off assumes that the environment is very optically thin for all
 quantum) \
-    {\it calculation continuum on/off} - turn on/off radiative transfer for the continuum. Turning off will make DiffRay calculate only line fluxes. \
+    {\it calculation continuum on/off} - turn on/off radiative transfer for the continuum. Turning off will make DiffRay calculate only line fluxes. \\
     {\it calculation abundance on/off} - turn on/off calculation of weighted elemental abundances within the volume cut by the aperture/along the observer sightline. Once you turn this on,
-abundance data files are required (See \ref{dataAbund} for details). \
+abundance data files are required (See \ref{dataAbund} for details). \\
     {\it calculation overview on/off} - turn on/off calculation of average electron temperature and density within the volume cut by the aperture/along the observer sightline. Once you turn this on,
-overview data files are required (See \ref{dataOverview} for details). \
+overview data files are required (See \ref{dataOverview} for details). \\
 
 \subsection{Isophotes}
-isophote {line | ratio} {line label} - prints a map of fluxes for a selected line within a square cut by the aperture. \
-This can be useful to visualize the spatial distribution of modeling volume brightness in specific emission lines. \
-    {\it isophote line 'line label'} - prints a map of absolute fluxes for a selected line. \
-    {\it isophote ratio 'line label'} - prints a map of relative fluxes for a selected line ($F(selected line)/F(H_{\beta})$). \
+isophote {line | ratio} {line label} - prints a map of fluxes for a selected line within a square cut by the aperture. \\
+This can be useful to visualize the spatial distribution of modeling volume brightness in specific emission lines. \\
+    {\it isophote line 'line label'} - prints a map of absolute fluxes for a selected line. \\
+    {\it isophote ratio 'line label'} - prints a map of relative fluxes for a selected line ($F(selected line)/F(H_{\beta})$). \\
 
 \subsection{Aperture}
 
