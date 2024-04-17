@@ -106,7 +106,7 @@ Here, the Sector number is the number of sectors represented by the file. The Ag
 A complete list of supported data files and their format can be found in the following subsections.
 
 \subsection{Continuum Mesh}
-{\bf Continuum{SectorNo}\_Last\_Age\{ObjectAge\}.dat} - a file with the continuum energy mesh structure. Each row should contain, in the first column, continuum cell energy in Rydbergs. The file is required. The structure of the file is as follows:
+{\bf Continuum\{SectorNo\}\_Last\_Age\{ObjectAge\}.dat} - a file with the continuum energy mesh structure. Each row should contain, in the first column, continuum cell energy in Rydbergs. The file is required. The structure of the file is as follows:
 \begin{table}[H]
     \begin{tabular}{ll}
         cell 1 energy & \ldots \\
@@ -118,7 +118,7 @@ A complete list of supported data files and their format can be found in the fol
 \end{table}
 Continuum cell energy should be represented in Rydberg units. The file can contain an arbitrary amount of columns, but only the first one is used, while the rest will be ignored. If you want to change the reading behavior, see the {\it CContinuum::readMesh} method in the "continuum.cpp" file.
 \subsection{Continuum emissivities map}
-{\bf Emis\_Cont\_SectorNo\{SectorNo\}\_Age\{ObjectAge\}.dat} - file with continuum emissivity data. Each row
+{\bf Emis\_Cont\_SectorNo\{SectorNo\}\_Age\{ObjectAge\}.dat} is a file with continuum emissivity data. Each row
 corresponds to sector slab. First row has only one value - inner radius. Next rows contain slab outer radius in first column, 
 and net volume emissivity values for each energy cell in corresponding slab in following columns. File is required. Note, that amount of columns in this file should
 be equal to amount of rows in {\bf Continuum\{SectorNo\}\_Last\_Age\{ObjectAge\}.dat} + 1 column for radius.
@@ -167,7 +167,7 @@ If you want to change reading behavior, see the {\it CLines::readLines} method i
     {\bf Important Note:} You can specify only lines defined in the known lines database. To check if a line exists and is supported, you can search the {\it data/database/line\_ch.data} for the line label or in {\it data/database/line\_en.data}. If you cannot find the desired line, you can add it by editing these files. It's highly recommended, however, to add any new lines at the end of the files. Also, if you edit these files, don't forget to copy them before you update DiffRay. Otherwise, the data you changed will be overwritten.
 
 \subsection{Chemical Abundance}
-{\bf Abund{SectorNo}\_Age\{ObjectAge\}.dat} - a file with elemental abundances data. Each row corresponds to a sector slab. The first row should have valid column headings with element names, provided as the first four symbols of the full name. (\#Depth H HELI LITH BERY\ldots, Garry Ferland's Cloudy output format, see \cite{Cloudy}). Subsequent rows contain the slab's outer radius in the first column, and elemental abundances for each element in the following columns. This file is not required. The structure is as follows:
+{\bf Abund\{SectorNo\}\_Age\{ObjectAge\}.dat} - a file with elemental abundances data. Each row corresponds to a sector slab. The first row should have valid column headings with element names, provided as the first four symbols of the full name. (\#Depth H HELI LITH BERY\ldots, Garry Ferland's Cloudy output format, see \cite{Cloudy}). Subsequent rows contain the slab's outer radius in the first column, and elemental abundances for each element in the following columns. This file is not required. The structure is as follows:
 \begin{table}[H]
     \begin{tabular}{llll}
         Heading & Element 1 label & Element 2 label & \ldots \\
@@ -181,7 +181,7 @@ Slab radius should be specified in centimeters. Abundances are represented as $l
 
 \subsection{Physical Conditions Overview File}
 \label{dataOverview}
-{\bf Overview\{SectorNo\}\_Age\{ObjectAge\}.dat} - file with additional data about physical conditions. Each row
+{\bf Overview\{SectorNo\}\_Age\{ObjectAge\}.dat} is a file with additional data about physical conditions. Each row
 corresponds to sector slab. The first row is a heading.
 (\#Depth Te Htot hden eden \ldots, Garry Ferland's Cloudy output of the {\it punch overview}
 format, see \cite{Cloudy}). Subsequent rows contain the slab's outer radius in the first column,
@@ -305,7 +305,7 @@ It has two rows: a heading and a list of weighted abundances ($12 - \log_{10}(n(
 
 \subsection{Isophotes}
 
-{\bf isophote\_\{index\}.dat} - file containing 2D data for drawing flux maps.
+{\bf isophote\_\{index\}.dat} is a file containing 2D data for drawing flux maps.
 The 1st and 2nd columns represent spatial angles, and the 3rd column lists the fluxes calculated from the direction determined by these spatial angles. \\
 
 When 'isophote' commands are present, gnuplot scripts for visualization are generated and located in the "plots"
