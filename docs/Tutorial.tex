@@ -218,7 +218,8 @@ each chemical element in the following columns. The structure is as follows:
     \end{tabular}
 \end{table}
 Slab radius should be specified in centimeters.
-Abundances are represented as $log_{10}(n(E) / n_{total})$.
+Abundances are represented as $\log(n(Element) / n_{Total})$, where $n(Element)$ represents the total chemical element's density,
+$n_{Total}$ is total density.
 If you want to change reading behavior, see the {\it Abund::getElementList} method in the "abund.cpp" file.
 
 \subsection{Physical Conditions Overview File}
