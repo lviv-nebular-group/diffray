@@ -184,30 +184,42 @@ The structure is as follows:
 \begin{table}[H]
     \begin{tabular}{llll}
         heading & & & \\
-        heading & line name & line name & \ldots \\
+        Col. label & line name & line name & \ldots \\
         Radius 1 & emissivity & emissivity & \ldots \\
         Radius 2 & emissivity & emissivity & \ldots \\
         Radius 3 & emissivity & emissivity & \ldots \\
         \ldots & \ldots & \ldots & \ldots \\
     \end{tabular}
 \end{table}
-Slab radius should be specified in centimeters. Emissivities are expressed in $erg \cdot cm^{-3} \cdot sec^{-1}$.
+While slab radius should be specified in centimeters, the emissivities are represented in $erg \cdot cm^{-3} \cdot sec^{-1}$.
 If you want to change reading behavior, see the {\it CLines::readLines} method in the "lines.cpp" file.
 
-    {\bf Important Note:} You can specify only lines defined in the known lines database. To check if a line exists and is supported, you can search the {\it data/database/line\_ch.data} for the line label or in {\it data/database/line\_en.data}. If you cannot find the desired line, you can add it by editing these files. It's highly recommended, however, to add any new lines at the end of the files. Also, if you edit these files, don't forget to copy them before you update DiffRay. Otherwise, the data you changed will be overwritten.
+    {\bf Important Note:} You can specify only lines defined in the known lines database.
+To check if emission line exists and is supported, you can search the {\it data/database/line\_ch.data} for the line label
+or in {\it data/database/line\_en.data} for energy in Rydbergs.
+If you cannot find the desired emission line, you can add it by editing these files.
+However, if you edit these files, don't forget to copy them before you update DiffRay.
+Otherwise, the data you changed will be overwritten during an update.
 
 \subsection{Chemical Abundance}
-{\bf Abund\{SectorNo\}\_Age\{ObjectAge\}.dat} is a file with elemental abundances data. Each row corresponds to a sector slab. The first row should have valid column headings with element names, provided as the first four symbols of the full name. (\#Depth H HELI LITH BERY\ldots, Garry Ferland's Cloudy output format, see \cite{Cloudy}). Subsequent rows contain the slab's outer radius in the first column, and elemental abundances for each element in the following columns. This file is not required. The structure is as follows:
+{\bf Abund\{SectorNo\}\_Age\{ObjectAge\}.dat} is a file with abundances of the chemical elements.
+Each row corresponds to a sector slab.
+The first row should have valid column headings with element names, provided as the first four symbols of the full name.
+(\#Depth H HELI LITH BERY\ldots, Garry Ferland's Cloudy output format, see \cite{Cloudy}).
+Subsequent rows contain the slab's outer radius in the first column, and relative abundances for
+each chemical element in the following columns. The structure is as follows:
 \begin{table}[H]
     \begin{tabular}{llll}
-        Heading & Element 1 label & Element 2 label & \ldots \\
+        Col. label & Element 1 label & Element 2 label & \ldots \\
         Radius 1 & Abundance Value & Abundance Value & \ldots \\
         Radius 2 & Abundance Value & Abundance Value & \ldots \\
         Radius 3 & Abundance Value & Abundance Value & \ldots \\
         \ldots & \ldots & \ldots & \ldots \\
     \end{tabular}
 \end{table}
-Slab radius should be specified in centimeters. Abundances are represented as $log_{10}(Element Particle Count / Total Particle Count)$. If you want to change reading behavior, see the {\it Abund::getElementList} method in the "abund.cpp" file.
+Slab radius should be specified in centimeters.
+Abundances are represented as $log_{10}(n(E) / n_{total})$.
+If you want to change reading behavior, see the {\it Abund::getElementList} method in the "abund.cpp" file.
 
 \subsection{Physical Conditions Overview File}
 \label{dataOverview}
