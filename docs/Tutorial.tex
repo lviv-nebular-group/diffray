@@ -108,11 +108,11 @@ A complete list of supported data files and their format can be found in the fol
 {\bf Continuum{SectorNo}\_Last\_Age{ObjectAge}.dat} - a file with the continuum energy mesh structure. Each row should contain, in the first column, continuum cell energy in Rydbergs. The file is required. The structure of the file is as follows:
 \begin{table}[H]
     \begin{tabular}{ll}
-        cell 1 energy & \ldots \
-        cell 2 energy & \ldots \
-        cell 3 energy & \ldots \
-        cell 4 energy & \ldots \
-        \ldots & \ldots \
+        cell 1 energy & \ldots \\
+        cell 2 energy & \ldots \\
+        cell 3 energy & \ldots \\
+        cell 4 energy & \ldots \\
+        \ldots & \ldots \\
     \end{tabular}
 \end{table}
 Continuum cell energy should be represented in Rydberg units. The file can contain an arbitrary amount of columns, but only the first one is used, while the rest will be ignored. If you want to change the reading behavior, see the {\it CContinuum::readMesh} method in the "continuum.cpp" file.
@@ -139,10 +139,10 @@ If you want to change reading behavour, see {\it CContinuum::readEmissivity} met
 \begin{table}[H]
     \begin{tabular}{lll}
         inner radius & & \
-        Radius 1 & opacity & \ldots \
-        Radius 2 & opacity & \ldots \
-        Radius 3 & opacity & \ldots \
-        \ldots & \ldots & \ldots \
+        Radius 1 & opacity & \ldots \\
+        Radius 2 & opacity & \ldots \\
+        Radius 3 & opacity & \ldots \\
+        \ldots & \ldots & \ldots \\
     \end{tabular}
 \end{table}
 Slab radius should be specified in centimeters. Opacities are expressed in $cm^{-1}$.
@@ -153,11 +153,11 @@ If you want to change reading behavior, see the {\it CContinuum::readOpacity} me
 \begin{table}[H]
     \begin{tabular}{llll}
         heading & & & \
-        heading & line name & line name & \ldots\
-        Radius 1 & emissivity & emissivity & \ldots \
-        Radius 2 & emissivity & emissivity & \ldots \
-        Radius 3 & emissivity & emissivity & \ldots \
-        \ldots & \ldots & \ldots & \ldots \
+        heading & line name & line name & \ldots \\
+        Radius 1 & emissivity & emissivity & \ldots \\
+        Radius 2 & emissivity & emissivity & \ldots \\
+        Radius 3 & emissivity & emissivity & \ldots \\
+        \ldots & \ldots & \ldots & \ldots \\
     \end{tabular}
 \end{table}
 Slab radius should be specified in centimeters. Emissivities are expressed in $erg \cdot cm^{-3} \cdot sec^{-1}$.
@@ -169,10 +169,10 @@ If you want to change reading behavior, see the {\it CLines::readLines} method i
 {\bf Abund{SectorNo}\_Age{ObjectAge}.dat} - a file with elemental abundances data. Each row corresponds to a sector slab. The first row should have valid column headings with element names, provided as the first four symbols of the full name. (#Depth H HELI LITH BERY\ldots, Garry Ferland's Cloudy output format, see \cite{Cloudy}). Subsequent rows contain the slab's outer radius in the first column, and elemental abundances for each element in the following columns. This file is not required. The structure is as follows:
 \begin{table}[H]
     \begin{tabular}{llll}
-        Heading & Element 1 label & Element 2 label & \ldots\
-        Radius 1 & Abundance Value & Abundance Value & \ldots \
-        Radius 2 & Abundance Value & Abundance Value & \ldots \
-        Radius 3 & Abundance Value & Abundance Value & \ldots \
+        Heading & Element 1 label & Element 2 label & \ldots \\
+        Radius 1 & Abundance Value & Abundance Value & \ldots \\
+        Radius 2 & Abundance Value & Abundance Value & \ldots \\
+        Radius 3 & Abundance Value & Abundance Value & \ldots \\
         \ldots & \ldots & \ldots & \ldots \
     \end{tabular}
 \end{table}
@@ -188,10 +188,10 @@ and corresponding values, like electron temperature, electron density, and so on
 \begin{table}[H]
     \begin{tabular}{llllll}
         Heading & & & & & \
-        Radius 1 & Electron Temperature & Heating Rate & Density & Electron Density & \ldots \
-        Radius 2 & Electron Temperature & Heating Rate & Density & Electron Density & \ldots \
-        Radius 3 & Electron Temperature & Heating Rate & Density & Electron Density & \ldots \
-        \ldots & \ldots & \ldots & \ldots & \ldots & \ldots \
+        Radius 1 & Electron Temperature & Heating Rate & Density & Electron Density & \ldots \\
+        Radius 2 & Electron Temperature & Heating Rate & Density & Electron Density & \ldots \\
+        Radius 3 & Electron Temperature & Heating Rate & Density & Electron Density & \ldots \\
+        \ldots & \ldots & \ldots & \ldots & \ldots & \ldots \\
     \end{tabular}
 \end{table}
 Slab radius should be specified in centimeters. Physical values are mostly represented on a logarithmic scale. If you want to change reading behavior, column order, and so on, see the {\it Physics::readPhysics} method in the "physics.cpp" file.
