@@ -166,7 +166,7 @@ If you want to change reading behavior, see the {\it CLines::readLines} method i
     {\bf Important Note:} You can specify only lines defined in the known lines database. To check if a line exists and is supported, you can search the {\it data/database/line\_ch.data} for the line label or in {\it data/database/line\_en.data}. If you cannot find the desired line, you can add it by editing these files. It's highly recommended, however, to add any new lines at the end of the files. Also, if you edit these files, don't forget to copy them before you update DiffRay. Otherwise, the data you changed will be overwritten.
 
 \subsection{Chemical Abundance}
-{\bf Abund{SectorNo}\_Age{ObjectAge}.dat} - a file with elemental abundances data. Each row corresponds to a sector slab. The first row should have valid column headings with element names, provided as the first four symbols of the full name. (#Depth H HELI LITH BERY\ldots, Garry Ferland's Cloudy output format, see \cite{Cloudy}). Subsequent rows contain the slab's outer radius in the first column, and elemental abundances for each element in the following columns. This file is not required. The structure is as follows:
+{\bf Abund{SectorNo}\_Age{ObjectAge}.dat} - a file with elemental abundances data. Each row corresponds to a sector slab. The first row should have valid column headings with element names, provided as the first four symbols of the full name. (\#Depth H HELI LITH BERY\ldots, Garry Ferland's Cloudy output format, see \cite{Cloudy}). Subsequent rows contain the slab's outer radius in the first column, and elemental abundances for each element in the following columns. This file is not required. The structure is as follows:
 \begin{table}[H]
     \begin{tabular}{llll}
         Heading & Element 1 label & Element 2 label & \ldots \\
@@ -182,7 +182,7 @@ Slab radius should be specified in centimeters. Abundances are represented as $l
 \label{dataOverview}
 {\bf Overview\{SectorNo\}\_Age{ObjectAge}.dat} - file with additional data about physical conditions. Each row
 corresponds to sector slab. The first row is a heading.
-(#Depth Te Htot hden eden \ldots, Garry Ferland's Cloudy output of the {\it punch overview}
+(\#Depth Te Htot hden eden \ldots, Garry Ferland's Cloudy output of the {\it punch overview}
 format, see \cite{Cloudy}). Subsequent rows contain the slab's outer radius in the first column,
 and corresponding values, like electron temperature, electron density, and so on. The structure is as follows:
 \begin{table}[H]
