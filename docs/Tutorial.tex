@@ -176,6 +176,7 @@ Slab radius should be specified in centimeters. Opacities are expressed in $cm^{
 If you want to change reading behavior, see the {\it CContinuum::readOpacity} method in the "continuum.cpp" file.
 
 \subsection{Lines Emissivity}
+\line{dataLines}
 {\bf Emis\_Lines\_SectorNo\{SectorNo\}\_Age\{ObjectAge\}.dat} is required file with lines emissivity data.
 Each row corresponds to a sector slab. The first two rows have headings, according to the standard
 Cloudy "punch line emissivity" command, \cite{Cloudy}.
@@ -372,38 +373,43 @@ should be provided in radians.
 \vspace{0.1cm}
 
 In this example, the code will run calculations for 3 apertures, and put results in the
-app\{N\} folder.
+{\it app\{N\}} folder.
 N is the aperture number here. Aperture folders are created automatically
 in the output directory specified with the output command.
+
+\newpage
 
 \section{Output}
 Output files will be stored in the output directory specified in the corresponding commands file command.
 
 \subsection{Emission Lines Results}
 {\bf linesarr.dat} is a file containing fluxes for each line specified in the line emissivities input file (see \ref{dataLines}).
-Each row contains four columns: line label, Flux at observer ($\mathrm{erg} \cdot \mathrm{cm}^{-2} \cdot \mathrm{s}^{-1}$), Luminosity ($\log_{10}(\mathrm{erg} \cdot \mathrm{s}^{-1})$),
-and relative flux ($F(\text{line})/F(H_{\beta})$).\\
-{\bf llum.dat} - an alternative representation of line luminosities. The file contains only two rows: a header, and luminosities for each line specified in the line emissivities input file (see \ref{dataLines}).
-Luminosity is printed as ($\log_{10}(\mathrm{erg} \cdot \mathrm{s}^{-1})$). \\
-{\bf lifr.dat} - an alternative representation of line fluxes. The file contains only two rows: a header, and fluxes for each line specified in the line emissivities input file (see \ref{dataLines}).
+Each row contains four columns: Line label, Flux at observer ($\mathrm{erg} \cdot \mathrm{cm}^{-2} \cdot \mathrm{s}^{-1}$),
+Luminosity ($\log(\mathrm{erg} \cdot \mathrm{s}^{-1})$),
+and Relative flux ($F(\text{line})/F(H_{\beta})$).\\
+{\bf llum.dat} is an alternative representation of line luminosities. The file contains only two rows: header and luminosities
+for each line specified in the line emissivities input file (see \ref{dataLines}).
+Luminosities are printed as ($\log(\mathrm{erg} \cdot \mathrm{s}^{-1})$). \\
+{\bf lifr.dat} is an alternative representation of line fluxes. The file contains only two rows: header and fluxes for each line
+specified in the line emissivities input file (see \ref{dataLines}).
 Fluxes are printed as ($\mathrm{erg} \cdot \mathrm{cm}^{-2} \cdot \mathrm{s}^{-1}$).
 
 \subsection{Continuum Output}
-{\bf contarr.dat} - contains continuum fluxes at different photon energies. It contains three columns:
+{\bf contarr.dat} contains continuum fluxes at different photon energies. It contains three columns:
 1 - Photon energy, 2 - amount of quanta of attenuated incident continuum ($\mathrm{cm}^{-2} \cdot \mathrm{s}^{-1}$), 3 - amount of quanta of diffuse continuum ($\mathrm{cm}^{-2} \cdot \mathrm{s}^{-1}$).\\
 
 More output files with additional formats are planned for the future.
 
 \subsection{Chemical Abundances}
-{\bf abmass.txt} - contains the abundances of elements within a volume cut by an aperture within the object, weighted by mass.
-It has two rows: a heading and a list of weighted abundances ($12 - \log_{10}(n(\text{element})/n(H))$). \\
-{\bf abemso.txt} - contains the abundances of elements within a volume cut by an aperture within the object, weighted by oxygen
+{\bf abmass.txt} contains the abundances of elements within a volume cut by an aperture within the object, weighted by mass.
+It consists of two rows: heading and list of weighted abundances ($12 - \log(n(\text{element})/n(H))$). \\
+{\bf abemso.txt} contains the abundances of elements within a volume cut by an aperture within the object, weighted by oxygen
 lines emissivity ($e(O3  5007\text{\AA}) + e(O3  4363\text{\AA}) + e(O3  4959\text{\AA}) + e(O2  3726\text{\AA}) + e(O2  3729\text{\AA})$).
-It has two rows: a heading and a list of weighted abundances ($12 - \log_{10}(n(\text{element})/n(H))$).
+It consists of two rows: heading and list of weighted abundances ($12 - \log(n(\text{element})/n(H))$).
 
 \subsection{Isophotes}
 
-{\bf isophote\_\{index\}.dat} is a file containing 2D data for drawing flux maps.
+{\bf isophote\_\{index\}.dat} is a file containing 2D data for drawing flux maps for corresponding lines (as specified in commands.ini file).
 The 1st and 2nd columns represent spatial angles, and the 3rd column lists the fluxes calculated from the direction determined by these spatial angles. \\
 
 When 'isophote' commands are present, gnuplot scripts for visualization are generated and located in the "plots"
