@@ -291,49 +291,86 @@ Commands that control the object's position in space.
 \hspace*{0.25cm} object age 50\\
 
 \subsection{Calculation and integration options}
-{\bf Integration}\\
-    {\it integration maxiterations x}, x - maximum code iterations.
-This option is useful to prevent the code from falling into an endless loop when trying to converge.\\
-    {\it integration precision x}, x - acceptable convergence between iterations, 0.01 - 1\%. \\
-    {\it integration predictive on} - turns on an additional iteration that runs before the main process of splitting the object into spatial angles and solving
-radiative transfer for those.
-This step tries to predict how much fluxes are changed along different sightlines within some angular sector
-to determine the desired initial angular integration step.
-It is recommended to turn on only in the case of an object with complex geometry and/or
-significant spatial inhomogeneities.
+Commands that control integration options and customize calculations.
+\begin{itemize}
+    \item Set the maximum allowable number of iterations in the iterative process of searching for the optimal integration step of ionizing radiation flows: \\
+    \hspace*{0.25cm} {\it integration maxiterations <x>}
+    \item Set the maximum permissible deviation between the integral flows of ionizing radiation in adjacent directions of integration (if the deviation exceeds the specified value, the integration step by angles will be reduced): \\
+    \hspace*{0.25cm} {\it integration precision <precision>} \\
+    Here precision 0.1 means 10\%
+    \item Turn on an additional iteration that runs before the main process of splitting the object into spatial angles and solving
+    radiative transfer for those: \\
+    \hspace*{0.25cm} {\it integration predictive <on / off>} \\
+    It is recommended to turn on only in the case of an object with complex geometry and/or
+    significant spatial inhomogeneities.
+    \item Turn on/off opacity calculation (turning this off assumes that the environment is very optically thin for all
+    quanta): \\
+    \hspace*{0.25cm} {\it calculation opacity <on/off>}
+    \item Turn on/off radiative transfer for the continuum. Turning off will make DiffRay calculate only line fluxes: \\
+    \hspace*{0.25cm} {\it calculation continuum <on/off>}
+    \item Turn on/off calculation of weighted elemental abundances within the volume cut by the aperture/along the observer sightline. Once you turn this on,
+    abundance data files are required (See \ref{dataAbund} for details): \\
+    \hspace*{0.25cm} {\it calculation abundance <on/off>}
+    \item Turn on/off calculation of average electron temperature and density within the volume cut by the aperture/along the observer sightline. Once you turn this on,
+    overview data files are required (See \ref{dataOverview} for details): \\
+    \hspace*{0.25cm} {\it calculation overview <on/off>}
+\end{itemize}
 
-{\bf Example:}\\
-integration precision 0.005\\
-integration maxiterations 12\\
-integration predictive off\\
+{\bf Example:}
+\vspace{0.25cm}
 
-{\bf Calculation}\
-calculation {scope} on/off - controls what kind of calculations DiffRay should perform. \\
-    {\it calculation opacity on/off} - turn on/off opacity calculation (turning this off assumes that the environment is very optically thin for all
-quantum) \
-    {\it calculation continuum on/off} - turn on/off radiative transfer for the continuum. Turning off will make DiffRay calculate only line fluxes. \\
-    {\it calculation abundance on/off} - turn on/off calculation of weighted elemental abundances within the volume cut by the aperture/along the observer sightline. Once you turn this on,
-abundance data files are required (See \ref{dataAbund} for details). \\
-    {\it calculation overview on/off} - turn on/off calculation of average electron temperature and density within the volume cut by the aperture/along the observer sightline. Once you turn this on,
-overview data files are required (See \ref{dataOverview} for details). \\
+\hspace*{0.25cm} integration precision 0.005
+\vspace{0.1cm}
+
+\hspace*{0.25cm} integration maxiterations 12
+\vspace{0.1cm}
+
+\hspace*{0.25cm} integration predictive off
+\vspace{0.1cm}
+
+\hspace*{0.25cm} calculation opacity on
+\vspace{0.1cm}
+
+\hspace*{0.25cm} calculation abundance on
+\vspace{0.1cm}
+
+\hspace*{0.25cm} calculation overview off
 
 \subsection{Isophotes}
-isophote {line | ratio} {line label} - prints a map of fluxes for a selected line within a square cut by the aperture. \\
+Prints a map of fluxes for a selected line within a square cut by the aperture. \\
 This can be useful to visualize the spatial distribution of modeling volume brightness in specific emission lines. \\
-    {\it isophote line 'line label'} - prints a map of absolute fluxes for a selected line. \\
-    {\it isophote ratio 'line label'} - prints a map of relative fluxes for a selected line ($F(selected line)/F(H_{\beta})$). \\
+\begin{itemize}
+    \item Print a map of absolute fluxes for a selected line: \\
+    \hspace*{0.25cm} {\it isophote line <line label>}
+    \item Print a map of relative fluxes for a selected line  ($F(selected line)/F(H_{\beta})$): \\
+    \hspace*{0.25cm} {\it isophote ratio <line label>}
+\end{itemize}
 
 \subsection{Aperture}
 
-{\it aperture phi theta w h} - Adds an aperture to the list of apertures to be calculated.
+Adds an aperture to the list of apertures to be calculated.
 Here phi - azimuthal aperture position, theta - vertical position relative to the ray
 from the observer to the center of the object. w, h - aperture width and height. All values
-should be provided in radians.\
+should be provided in radians.
 
-    {\bf Example:}\
-aperture add 0 0 0.000014537 0.000014537\
-aperture add 0.000464 0.0000139 0.000014537 0.000014537\
-aperture add -0.000271 -0.0000102 0.000014537 0.000014537\
+\begin{itemize}
+    \item Print a map of absolute fluxes for a selected line: \\
+    \hspace*{0.25cm} {\it aperture phi theta w h}
+\end{itemize}
+
+\item
+{\bf Example:}
+\vspace{0.25cm}
+
+\hspace*{0.25cm} aperture add 0 0 0.000014537 0.000014537
+\vspace{0.1cm}
+
+\hspace*{0.25cm} aperture add 0.000464 0.0000139 0.000014537 0.000014537
+\vspace{0.1cm}
+
+\hspace*{0.25cm} aperture add -0.000271 -0.0000102 0.000014537 0.000014537
+\vspace{0.1cm}
+
 In this example, the code will run calculations for 3 apertures, and put results in the
 app{N} folder.
 N is the aperture number here. Aperture folders are created automatically
