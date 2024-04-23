@@ -242,17 +242,16 @@ Slab radius should be specified in centimeters. Physical values are mostly repre
 
 \section{Commands file}
 
-Once you have compiled the code and prepared the data files, you should write some instructions for how and what the code should calculate. These instructions are contained in the commands.ini file in the installation root directory.
-
-An example is distributed with the code source. \\
+Once you have compiled the code and prepared the data files, you should write some instructions for how and what the code should calculate. These instructions are contained in the {\it commands.ini} file in the installation root directory.
 
 \subsection{IO settings}
-{\it print directory "path to your output folder, relative to the installation root directory"} - set the path to the folder where output files will be located\
-    {\it input directory "path to input data files folder, relative to the installation root directory"} - set the path to the folder with input data\
-
-    {\bf Example:}\
-print directory result/ngc/ism0/140\\
-input directory data/ngc1569nograin\\
+\begin{itemize}
+    \item {\it print directory \<path to your output folder, relative to the installation root directory\>} -- set the path to the folder where output files will be located \\
+    \item {\it input directory \<path to input data files folder, relative to the installation root directory\>} -- set the path to the folder with input data \\
+\end{itemize}
+{\bf Example:} \\
+print directory result/ngc/ism0/140 \\
+input directory data/ngc1569nograin \\
 Please note that paths should be provided without quotes!\\
 
 \subsection{Geometry and distance}
@@ -277,12 +276,14 @@ object age 50\\
 
 \subsection{Calculation and integration options}
 {\bf Integration}\\
-    {\it integration maxiterations x}, x - maximum code iterations. This option is useful to prevent the code from falling into an endless loop when trying to converge.\\
+    {\it integration maxiterations x}, x - maximum code iterations.
+This option is useful to prevent the code from falling into an endless loop when trying to converge.\\
     {\it integration precision x}, x - acceptable convergence between iterations, 0.01 - 1\%. \\
-    {\it integration mode outw} - switches code to Outward Only mode, is good for tests.\\
     {\it integration predictive on} - turns on an additional iteration that runs before the main process of splitting the object into spatial angles and solving
-radiative transfer for those. This step tries to predict how much fluxes are changed along different sightlines within some angular sector
-to determine the desired initial angular integration step. It is recommended to turn on only in the case of an object with complex geometry and/or
+radiative transfer for those.
+This step tries to predict how much fluxes are changed along different sightlines within some angular sector
+to determine the desired initial angular integration step.
+It is recommended to turn on only in the case of an object with complex geometry and/or
 significant spatial inhomogeneities.
 
 {\bf Example:}\\
@@ -318,7 +319,8 @@ aperture add 0 0 0.000014537 0.000014537\
 aperture add 0.000464 0.0000139 0.000014537 0.000014537\
 aperture add -0.000271 -0.0000102 0.000014537 0.000014537\
 In this example, the code will run calculations for 3 apertures, and put results in the
-app{N} folder. N is the aperture number here. Aperture folders are created automatically
+app{N} folder.
+N is the aperture number here. Aperture folders are created automatically
 in the directory specified with the output command.
 
 \section{Output}
