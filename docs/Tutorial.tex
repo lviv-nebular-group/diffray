@@ -261,25 +261,34 @@ Once you have compiled the code and prepared the data files, you should write so
 \\
 Please note that paths should be provided without quotes!\\
 
-\subsection{Geometry and distance}
+\subsection{Object geometry and distance}
 Commands that control the object's position in space.
-    {\bf Distance}\\
-    {\it distance log10\_dist units}.\\
+\begin{itemize}
+    \item Set the distance to the object: \\
+    \centerline{\it distance <log(dist)> <units>} \\
+    Supported units are meters, kilometers, centimeters.
+    \item Set the azimuthal coordinate for the destination point wherein the fluxes should be integrated : \\
+    \centerline{\it object phi <azimuthal coordinate, in radians>}
+    \item Set the equathorial coordinate for the destination point wherein fluxes should be integrated : \\
+    \centerline{\it object theta <azimuthal coordinate, in radians>}
+    \item Set the object age : \\
+    \centerline{\it object age <object age, Myr>} \\
+    Currently, it doesn't have any impact on calculations and can be used as models bundle identifier
+\end{itemize}
 
-    {\bf Example:}\\
-distance 19.87 km \\
-(The distance to the object is adopted to be $10^{19.87}$ kilometers.
-Supported units are meters, kilometers, centimeters.
+{\bf Example:}
+\vspace{0.25cm}
 
-    {\bf Object}\\
-    {\it object phi x}, x - object's azimuthal rotation angle relating to the observer's sight ray in radians;\\
-    {\it object theta x}, x - object's vertical rotation angle relating to the observer's sight ray in radians;\\
-    {\it object age x}, x - object age, or another model's bundle identifier; Currently, it doesn't have any impact on calculations.\\
+\hspace*{0.25cm} distance 19.75 cm
+\vspace{0.1cm}
 
-    {\bf Example:}\\
-object phi 0.76\\
-object theta 0.21\\
-object age 50\\
+\hspace*{0.25cm} object phi 0.76
+\vspace{0.1cm}
+
+\hspace*{0.25cm} object theta 0.21
+\vspace{0.1cm}
+
+\hspace*{0.25cm} object age 50\\
 
 \subsection{Calculation and integration options}
 {\bf Integration}\\
