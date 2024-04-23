@@ -202,6 +202,7 @@ However, if you edit these files, don't forget to copy them before you update Di
 Otherwise, the data you changed will be overwritten during an update.
 
 \subsection{Chemical Abundance}
+\label{dataAbund}
 {\bf Abund\{SectorNo\}\_Age\{ObjectAge\}.dat} is a file with abundances of the chemical elements.
 Each row corresponds to a sector slab.
 The first row should have valid column headings with element names, provided as the first four symbols of the full name.
@@ -342,7 +343,7 @@ This can be useful to visualize the spatial distribution of modeling volume brig
 \begin{itemize}
     \item Print a map of absolute fluxes for a selected line: \\
     \hspace*{0.25cm} {\it isophote line <line label>}
-    \item Print a map of relative fluxes for a selected line  ($F(selected line)/F(H_{\beta})$): \\
+    \item Print a map of relative fluxes for a selected line  ($F(line)/F(H_{\beta})$): \\
     \hspace*{0.25cm} {\it isophote ratio <line label>}
 \end{itemize}
 
@@ -371,9 +372,9 @@ should be provided in radians.
 \vspace{0.1cm}
 
 In this example, the code will run calculations for 3 apertures, and put results in the
-app{N} folder.
+app\{N\} folder.
 N is the aperture number here. Aperture folders are created automatically
-in the directory specified with the output command.
+in the output directory specified with the output command.
 
 \section{Output}
 Output files will be stored in the output directory specified in the corresponding commands file command.
