@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=latex 2024.3.15)  10 APR 2024 18:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=latex 2024.3.15)  24 APR 2024 01:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -138,39 +138,47 @@ Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count272
+\float@exts=\toks22
+\float@box=\box52
+\@float@everytoks=\toks23
+\@floatcapt=\box53
+)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
 File: l3backend-dvips.def 2022-01-12 L3 backend support: dvips
-\l__pdf_internal_box=\box52
-\g__pdf_backend_object_int=\count272
-\l__pdf_backend_content_box=\box53
-\l__pdf_backend_model_box=\box54
-\g__pdf_backend_annotation_int=\count273
-\g__pdf_backend_link_int=\count274
-\g__pdf_backend_link_sf_int=\count275
+\l__pdf_internal_box=\box54
+\g__pdf_backend_object_int=\count273
+\l__pdf_backend_content_box=\box55
+\l__pdf_backend_model_box=\box56
+\g__pdf_backend_annotation_int=\count274
+\g__pdf_backend_link_int=\count275
+\g__pdf_backend_link_sf_int=\count276
 )
 (./Tutorial.aux)
 \openout1 = `Tutorial.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 13.
 
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 13.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -178,122 +186,65 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 File: our_algo.eps Graphic file (type eps)
  <our_algo.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 58--64
+Underfull \hbox (badness 10000) in paragraph at lines 62--68
 
  []
 
 [1
 
 ]
-File: diffray_algo.eps Graphic file (type eps)
- <diffray_algo.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 85--90
+Underfull \hbox (badness 10000) in paragraph at lines 78--87
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 97--103
-
- []
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 120.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.122 continuum cell 1 energ& &
-                                ... \\
-? 
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.123 continuum cell 2 energ& &
-                                ... \\
-? 
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.124 continuum cell 3 energ& &
-                                ... \\
-? 
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.125 continuum cell 4 energ& &
-                                ... \\
-? 
-! Misplaced alignment tab character &.
-l.129 &
-       ontinuum cell energ& should be represended in RRdberg
-? 
-! Misplaced alignment tab character &.
-l.129 &ontinuum cell energ&
-                            should be represended in RRdberg
-? 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
+Overfull \hbox (0.58539pt too wide) in paragraph at lines 141--157
+\T1/cmr/bx/n/10 Emis_Cont_SectorNo{SectorNo}_Age{ObjectAge}.dat \T1/cmr/m/n/10 
+is re-quired file with con-tin-uum emis-siv-ity data. Each
+ []
+
+[3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 262--265
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--163
+Underfull \hbox (badness 10000) in paragraph at lines 262--265
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--168
+Underfull \hbox (badness 10000) in paragraph at lines 293--294
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 342--344
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 398--400
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--171
+Underfull \hbox (badness 10000) in paragraph at lines 412--414
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 177--181
-
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 182--186
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 187--192
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 193--196
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 197--198
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 199--203
-
- []
-
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
-18.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 4
+23.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [4] (./Tutorial.aux) ) 
+) [7] (./Tutorial.aux) ) 
 Here is how much of TeX's memory you used:
- 2530 strings out of 478288
- 36995 string characters out of 5849315
- 330949 words of memory out of 5000000
- 20721 multiletter control sequences out of 15000+600000
- 477334 words of font info for 45 fonts, out of 8000000 for 9000
+ 2612 strings out of 478288
+ 38228 string characters out of 5849315
+ 333331 words of memory out of 5000000
+ 20796 multiletter control sequences out of 15000+600000
+ 479889 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,9n,76p,310b,311s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,9n,76p,310b,315s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Tutorial.dvi (4 pages, 14132 bytes).
+Output written on Tutorial.dvi (7 pages, 27892 bytes).
